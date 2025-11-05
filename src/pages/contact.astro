@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedSection from '../components/AnimatedSection';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'Agnosphere',
+    email: 'hello@agnosphere.com',
+  },
+};
+---
+
+<BaseLayout
+  title="Contact Us - Agnosphere"
+  description="Get in touch with Agnosphere. Book a consultation, send us a message, or schedule a call to discuss your AI and data needs."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          Let's Start a Conversation
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          We'd love to hear about your challenges and explore how we can help. Choose the best way to connect with us.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Options -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Cal.com Embed -->
+          <AnimatedSection client:load>
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-lg">
+              <div class="mb-6">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg mb-4">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Book a Call</h2>
+                <p class="text-gray-600 mb-6">
+                  Schedule a free 30-minute consultation. We'll discuss your needs and how we can help.
+                </p>
+              </div>
+
+              <!-- Cal.com Inline Embed -->
+              <div class="bg-white rounded-xl p-4 shadow-md" style="min-height: 500px;">
+                <div 
+                  class="cal-inline-embed"
+                  data-cal-link="agnosphere/consultation"
+                  data-cal-config='{"layout":"month_view"}'
+                  style="width:100%;height:100%;overflow:hidden;"
+                ></div>
+              </div>
+
+              <p class="text-sm text-gray-500 mt-4 text-center">
+                Can't find a time? <a href="mailto:hello@agnosphere.com" class="text-blue-600 hover:underline">Email us</a> directly.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <!-- Contact Form & Info -->
+          <div class="space-y-8">
+            <AnimatedSection delay={0.2} client:load>
+              <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                <div class="mb-6">
+                  <div class="inline-flex items-center justify-center w-12 h-12 bg-indigo-600 rounded-lg mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">Send a Message</h2>
+                  <p class="text-gray-600 mb-6">
+                    Prefer email? Fill out the form below and we'll get back to you within 24 hours.
+                  </p>
+                </div>
+
+                <!-- Contact Form -->
+                <form 
+                  action="https://formspree.io/f/YOUR_FORM_ID"
+                  method="POST"
+                  class="space-y-4"
+                  id="contact-form"
+                >
+                  <div>
+                    <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      placeholder="john@company.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="company" class="block text-sm font-semibold text-gray-700 mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      placeholder="Your Company"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                      placeholder="Tell us about your needs..."
+                    ></textarea>
+                  </div>
+
+                  <!-- Honeypot -->
+                  <input type="text" name="_gotcha" style="display:none" />
+                  
+                  <button
+                    type="submit"
+                    class="w-full px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  >
+                    Send Message
+                    <svg class="inline ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </AnimatedSection>
+
+            <!-- Direct Contact Info -->
+            <AnimatedSection delay={0.3} client:load>
+              <div class="bg-gray-50 rounded-2xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">Other Ways to Reach Us</h3>
+                <div class="space-y-4">
+                  <a
+                    href="mailto:hello@agnosphere.com"
+                    class="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    <svg class="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span class="font-medium">hello@agnosphere.com</span>
+                  </a>
+                  
+                  <a
+                    href="https://linkedin.com/company/agnosphere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    <svg class="w-5 h-5 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <span class="font-medium">Connect on LinkedIn</span>
+                  </a>
+
+                  <a
+                    href="https://twitter.com/agnosphere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    <svg class="w-5 h-5 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                    <span class="font-medium">Follow on Twitter</span>
+                  </a>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <AnimatedSection className="text-center mb-12" client:load>
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            Common Questions
+          </h2>
+        </AnimatedSection>
+
+        <div class="space-y-6">
+          {[
+            {
+              q: 'What happens after I book a call?',
+              a: 'We\'ll have a 30-minute conversation about your challenges and goals. No pressure, no sales pitch - just honest advice on how we can help.'
+            },
+            {
+              q: 'How quickly can you respond?',
+              a: 'We aim to respond to all inquiries within 24 hours on business days.'
+            },
+            {
+              q: 'Do you work with companies outside your timezone?',
+              a: 'Absolutely! We work with clients globally and can accommodate different time zones.'
+            },
+            {
+              q: 'What if I\'m not sure what I need?',
+              a: 'That\'s perfectly fine! Many of our best engagements start with an exploratory conversation where we help you clarify your needs.'
+            },
+          ].map((faq, index) => (
+            <AnimatedSection delay={index * 0.05} client:load>
+              <div class="bg-white rounded-xl p-6 shadow-md">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{faq.q}</h3>
+                <p class="text-gray-600">{faq.a}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- Cal.com Embed Script -->
+<script is:inline>
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", {origin:"https://cal.com"});
+</script>
+
+<script>
+  // Form submission tracking
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', () => {
+      if ((window as any).plausible) {
+        (window as any).plausible('form_submission');
+      }
+    });
+  }
+</script>
+

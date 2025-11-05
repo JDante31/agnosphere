@@ -1,0 +1,51 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  href: string;
+  features?: string[];
+}
+
+const { title, description, icon, href, features = [] } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group block bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200"
+>
+  <div class="mb-6">
+    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+      {icon}
+    </div>
+  </div>
+  
+  <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+    {title}
+  </h3>
+  
+  <p class="text-gray-600 mb-6 leading-relaxed">
+    {description}
+  </p>
+  
+  {features.length > 0 && (
+    <ul class="space-y-2 mb-6">
+      {features.map((feature) => (
+        <li class="flex items-start text-sm text-gray-700">
+          <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  
+  <div class="flex items-center text-blue-600 font-semibold group-hover:text-blue-700">
+    Learn more
+    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+    </svg>
+  </div>
+</a>
+

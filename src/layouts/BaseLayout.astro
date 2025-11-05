@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CustomCursor from '../components/CustomCursor';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: any;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og-image.png',
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+const site = Astro.site?.toString() || 'https://agnosphere.com';
+const currentUrl = canonical || new URL(Astro.url.pathname, site).toString();
+const fullOgImage = new URL(ogImage, site).toString();
+
+// Default JSON-LD for Organization
+const defaultJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Agnosphere',
+  url: site,
+  logo: `${site}/logo.png`,
+  description: 'AI and Data Consulting for SMB and Mid-Market Companies',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'Sales',
+    email: 'hello@agnosphere.com', // User will update
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={currentUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:site_name" content="Agnosphere" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://plausible.io" />
+    <link rel="dns-prefetch" href="https://cal.com" />
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd || defaultJsonLd)} />
+    
+    <!-- Plausible Analytics (will be configured) -->
+    <script defer data-domain="agnosphere.com" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body class="antialiased">
+    <CustomCursor client:load />
+    <Header />
+    <main class="pt-20">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+

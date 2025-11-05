@@ -1,0 +1,106 @@
+---
+// Simplified navigation - ONE page to rule them all
+const navItems = [
+  { label: 'Services', href: '/#services' },
+  { label: 'Kontakt', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
+  <nav class="mx-auto px-6 lg:px-12 max-w-7xl">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="text-2xl font-semibold tracking-tight text-gradient-hover transition-all duration-300">
+        Agnosphere
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-10">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-gray-600 hover:gradient-text transition-all duration-300"
+          >
+            {item.label}
+          </a>
+        ))}
+        
+        <a
+          href="https://cal.com/agnosphere"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-2.5 text-sm font-medium bg-gray-900 text-white tilt-3d glow-on-hover"
+          data-event="cta_header_click"
+        >
+          Call buchen →
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors duration-300"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+      >
+        <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-6 space-y-4">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="block py-2 text-base font-medium text-gray-600 hover:gradient-text transition-colors duration-300"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="https://cal.com/agnosphere"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block w-full text-center px-6 py-3 text-base font-medium bg-gray-900 text-white hover:bg-gray-800 transition-colors duration-300"
+        data-event="cta_mobile_click"
+      >
+        Call buchen →
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  
+  if (menuButton && mobileMenu && menuIcon && closeIcon) {
+    menuButton.addEventListener('click', () => {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  }
+
+  // Track CTA clicks
+  document.querySelectorAll('[data-event]').forEach(el => {
+    el.addEventListener('click', () => {
+      const eventName = el.getAttribute('data-event');
+      if (eventName && (window as any).plausible) {
+        (window as any).plausible(eventName);
+      }
+    });
+  });
+</script>

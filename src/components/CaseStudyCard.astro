@@ -1,0 +1,70 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  href: string;
+  tags?: string[];
+  impact?: string;
+}
+
+const { title, description, image, href, tags = [], impact } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+>
+  {image ? (
+    <div class="aspect-video overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100">
+      <img 
+        src={image} 
+        alt={title} 
+        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+      />
+    </div>
+  ) : (
+    <div class="aspect-video bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center">
+      <div class="text-white text-6xl font-bold opacity-20">
+        {title.charAt(0)}
+      </div>
+    </div>
+  )}
+  
+  <div class="p-6">
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-3">
+        {tags.map((tag) => (
+          <span class="px-3 py-1 text-xs font-medium bg-blue-50 text-blue-700 rounded-full">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+    
+    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">
+      {title}
+    </h3>
+    
+    <p class="text-gray-600 mb-4 line-clamp-3">
+      {description}
+    </p>
+    
+    {impact && (
+      <div class="flex items-center text-green-600 font-semibold mb-4 text-sm">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+        </svg>
+        {impact}
+      </div>
+    )}
+    
+    <div class="flex items-center text-blue-600 font-semibold group-hover:text-blue-700">
+      Read case study
+      <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+

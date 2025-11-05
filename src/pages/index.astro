@@ -1,0 +1,610 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const stats = [
+  { value: '14', label: 'Years at Google (Urs)' },
+  { value: '2-3', label: 'Week Engagements' },
+  { value: '100%', label: 'Demystified' },
+];
+---
+
+<BaseLayout
+  title="Agnosphere - AI & Data Consulting"
+  description="Former Google engineers helping SMB and mid-market companies build AI and data solutions that work."
+>
+  <!-- Glassmorphism Header with spotlight effect -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
+    <nav class="mx-auto px-6 lg:px-12 max-w-7xl">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="text-2xl font-semibold tracking-tight text-gradient-hover">Agnosphere</a>
+        
+        <a
+          href="https://cal.com/agnosphere"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-8 py-3 text-sm font-medium bg-gray-900 text-white transition-all duration-300 tilt-3d breathe glow-on-hover"
+        >
+          Book a Call →
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero with founders photo - trust through authenticity -->
+  <section class="min-h-[90vh] flex items-center justify-center px-6 pt-20 pb-12 particle-bg relative overflow-hidden">
+    <!-- Subtle vertical line for orientation - left edge -->
+    <div class="hidden lg:block absolute left-12 top-32 bottom-32 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+    
+    <!-- Animated gradient blobs -->
+    <div class="absolute top-20 right-10 w-96 h-96 bg-[#de9e8f]/8 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-20 left-10 w-80 h-80 bg-[#de9e8f]/8 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+
+    <div class="max-w-7xl w-full relative z-10">
+      <div class="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-center">
+        <!-- Left: Copy -->
+        <div class="space-y-8">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold tracking-tighter leading-[0.95] reveal">
+            AI ohne<br/>
+            <span class="text-lime-stroke shimmer">Bullshit.</span>
+          </h1>
+          
+          <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl reveal reveal-1 text-reveal active">
+            Wir sind Urs & Jakob. Haben bei Google AI gebaut, dann privma gegründet. Jetzt helfen wir deutschen Mittelständlern, AI zu verstehen und richtig einzusetzen.
+          </p>
+          
+          <p class="text-lg text-gray-500 leading-relaxed max-w-xl reveal reveal-2">
+            Keine Agentur. Keine 6-Monats-Projekte. Wir zeigen euch in 2-3 Wochen, was wirklich geht—und was nicht.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 pt-4 reveal reveal-3">
+            <a
+              href="https://cal.com/agnosphere"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group px-10 py-4 bg-gray-900 text-white font-medium hover-lift glow-on-hover inline-flex items-center justify-center gap-3 tilt-3d"
+            >
+              <span>Erstgespräch buchen</span>
+              <span class="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </a>
+            
+            <a
+              href="#services"
+              class="px-10 py-4 glass font-medium hover-lift transition-all duration-300 text-center morphing-border"
+            >
+              Was wir machen
+            </a>
+          </div>
+
+          <!-- Stats below CTAs on mobile, hidden on desktop -->
+          <div class="grid grid-cols-3 gap-4 pt-6 reveal reveal-4 lg:hidden">
+            {stats.map((stat, index) => (
+              <div class="text-center">
+                <div class={`text-2xl font-mono-numbers font-semibold mb-1 text-gray-900`}>{stat.value}</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Right: Founders Photo + Stats -->
+        <div class="space-y-6 reveal reveal-4 flex flex-col items-center">
+          <!-- Stats cards with photo overlay -->
+          <div class="w-full max-w-lg space-y-3 relative">
+            <!-- Founder photo positioned above first card - MUCH LARGER -->
+            <div class="relative -mb-24 z-20 flex justify-center">
+              <div class="relative group w-full">
+                <img 
+                  src="/images/founders.JPG" 
+                  alt="Urs & Jakob - Agnosphere Founders" 
+                  class="w-full h-auto max-h-[450px] object-contain drop-shadow-2xl"
+                  loading="eager"
+                />
+                
+                <!-- Interactive founder badges on image -->
+                <div class="absolute inset-0 flex items-end justify-between px-8 pb-8">
+                  <!-- Urs badge (left) -->
+                  <button 
+                    class="founder-badge glass px-4 py-2.5 rounded-xl border border-white/40 hover-lift cursor-pointer transition-all duration-300 hover:scale-110"
+                    data-founder="urs"
+                  >
+                    <div class="text-sm font-semibold text-gray-900">Urs</div>
+                    <div class="text-xs text-gray-600">Ex-Google</div>
+                  </button>
+                  
+                  <!-- Jakob badge (right) -->
+                  <button 
+                    class="founder-badge glass px-4 py-2.5 rounded-xl border border-white/40 hover-lift cursor-pointer transition-all duration-300 hover:scale-110"
+                    data-founder="jakob"
+                  >
+                    <div class="text-sm font-semibold text-gray-900">Jakob</div>
+                    <div class="text-xs text-gray-600">Ex-Google</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats with glassmorphism - Desktop only -->
+            <div class="space-y-3 w-full hidden lg:block pt-24">
+              {stats.map((stat, index) => (
+                <div class="glass p-5 rounded-xl bento-card spotlight border border-white/20" data-bento-card>
+                  <div class="flex items-baseline gap-4 group cursor-default">
+                    <span class="text-3xl font-mono-numbers font-semibold counter-animate text-gray-900 group-hover:text-gray-700">{stat.value}</span>
+                    <span class="text-xs text-gray-600 uppercase tracking-wider leading-tight font-medium">{stat.label}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Section Divider -->
+  <div class="relative py-16 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4">
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+        <div class="flex items-center gap-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+          <span class="text-xs font-mono text-gray-400 tracking-wider">01</span>
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+        </div>
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Founder Modal/Popup (hidden by default) -->
+  <div id="founder-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] hidden items-center justify-center p-6">
+    <div class="glass rounded-3xl max-w-2xl w-full p-8 relative border-2 border-white/40 max-h-[80vh] overflow-y-auto">
+      <button id="close-modal" class="absolute top-6 right-6 text-gray-400 hover:text-gray-900 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      
+      <!-- Urs Content -->
+      <div id="urs-content" class="founder-content hidden">
+        <div class="mb-6">
+          <h3 class="text-3xl font-semibold mb-2 text-gray-900">Urs</h3>
+          <p class="text-gray-600">14 Jahre Google · München, SF, London</p>
+        </div>
+        
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
+              <span class="w-1 h-6 bg-slate-800"></span>
+              Was er gemacht hat
+            </h4>
+            <div class="space-y-3 pl-3 text-gray-600">
+              <p>Maps, Ads, große Enterprise-Kunden bei Google. Hat gesehen, wie AI in echt funktioniert—bei Millionen Usern, mit echten Daten, unter echtem Druck.</p>
+              <p>Weiß, wo AI Hype ist und wo es ROI bringt.</p>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
+              <span class="w-1 h-6 bg-slate-800"></span>
+              Was er jetzt macht
+            </h4>
+            <div class="space-y-3 pl-3">
+              <div>
+                <div class="font-semibold text-gray-900">Privma (mit Jakob)</div>
+                <div class="text-sm text-gray-500">Personal AI, die DMA Data Portability nutzt. Haben selbst die Tech gebaut, selbst gefailed, selbst iteriert. Das ist unser Lab.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Jakob Content -->
+      <div id="jakob-content" class="founder-content hidden">
+        <div class="mb-6">
+          <h3 class="text-3xl font-semibold mb-2 text-gray-900">Jakob</h3>
+          <p class="text-gray-600">Ex-Google ML · Product Builder</p>
+        </div>
+        
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
+              <span class="w-1 h-6 bg-slate-800"></span>
+              Was er gemacht hat
+            </h4>
+            <div class="space-y-3 pl-3 text-gray-600">
+              <p>ML-Pipelines und Product bei Google. Dann intensiv in AI/ML reingehauen—weiß genau, wo die Tech-Grenzen sind und was wirklich geht.</p>
+              <p>Kann Code lesen, Claims checken, Bullshit sofort erkennen.</p>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
+              <span class="w-1 h-6 bg-slate-800"></span>
+              Was er jetzt macht
+            </h4>
+            <div class="space-y-3 pl-3">
+              <div>
+                <div class="font-semibold text-gray-900">Privma (mit Urs)</div>
+                <div class="text-sm text-gray-500">Context Layer für AI. Haben die ganze Infra selbst gebaut—deshalb wissen wir, was machbar ist in 2-3 Wochen.</div>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">HeyNuno</div>
+                <div class="text-sm text-gray-500">RAG-basierter AI Assistant. Production-ready, läuft bei Kunden.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services - Cutting-edge minimal -->
+  <section id="services" class="py-32 px-6 relative overflow-hidden bg-white">
+    <!-- Subtle vertical line for orientation - left edge -->
+    <div class="hidden lg:block absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+    
+    <!-- Section number - editorial style -->
+    <div class="hidden lg:block absolute left-6 top-32 -rotate-90 origin-left">
+      <span class="text-xs font-mono text-gray-300 tracking-wider">01 — SERVICES</span>
+    </div>
+    
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="grid lg:grid-cols-12 gap-16 lg:gap-20">
+        <!-- Left: Sticky Header -->
+        <div class="lg:col-span-5">
+          <div class="lg:sticky lg:top-32 space-y-8">
+            <div class="space-y-4">
+              <h2 class="text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] reveal">
+                Wie wir<br/>helfen
+              </h2>
+              
+              <p class="text-lg text-gray-500 leading-relaxed reveal reveal-1">
+                Kurz, knackig, konkret.
+              </p>
+            </div>
+
+            <!-- Minimal floating indicator -->
+            <div class="flex items-center gap-3 text-sm text-gray-400 reveal reveal-2">
+              <div class="w-2 h-2 rounded-full bg-gray-900 animate-pulse"></div>
+              <span>2-3 Wochen pro Projekt</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Service Cards -->
+        <div class="lg:col-span-7 space-y-3">
+          {[
+            {
+              number: '01',
+              title: 'AI Entmystifizierung',
+              description: 'Workshop: Was ist AI wirklich? Wo macht es Sinn? Wo ist es Hype? 1-2 Tage, alle verstehen es danach.',
+            },
+            {
+              number: '02',
+              title: 'Use Case Sparring',
+              description: 'Gemeinsam konkrete Use Cases identifizieren. ROI schätzen. Prioritäten setzen. Kein PowerPoint-Theater.',
+            },
+            {
+              number: '03',
+              title: 'Proof of Concept',
+              description: 'In 2-3 Wochen zeigen wir, ob euer Use Case funktioniert. Quick & dirty, aber echt. Dann entscheidet ihr.',
+            },
+            {
+              number: '04',
+              title: 'Tech Due Diligence',
+              description: 'Ihr wollt AI einkaufen oder einen Partner evaluieren? Wir checken die Claims und sagen euch die Wahrheit.',
+            },
+          ].map((service, index) => (
+            <div
+              class={`group relative p-8 border-b border-gray-100 hover:bg-gray-50/50 transition-all duration-500 cursor-pointer reveal reveal-${index + 1}`}
+            >
+              <div class="flex items-start gap-8">
+                <!-- Minimal number -->
+                <div class="relative pt-1">
+                  <span class="text-sm font-mono-numbers text-gray-300 group-hover:text-gray-900 transition-colors duration-500">{service.number}</span>
+                </div>
+                
+                <div class="flex-1 space-y-3">
+                  <!-- Title with subtle animation -->
+                  <h3 class="text-2xl font-semibold text-gray-900 group-hover:translate-x-1 transition-transform duration-500">
+                    {service.title}
+                  </h3>
+                  
+                  <!-- Description -->
+                  <p class="text-gray-600 leading-relaxed max-w-xl">
+                    {service.description}
+                  </p>
+                </div>
+
+                <!-- Minimal arrow indicator -->
+                <div class="opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-500 pt-2">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Subtle progress bar on hover -->
+              <div class="absolute bottom-0 left-0 h-px bg-gradient-to-r from-gray-900 to-transparent w-0 group-hover:w-full transition-all duration-700 ease-out"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Section Divider -->
+  <div class="relative py-16 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4">
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+        <div class="flex items-center gap-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+          <span class="text-xs font-mono text-gray-400 tracking-wider">02</span>
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+        </div>
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background with 3D tilting project cards -->
+  <section class="py-24 px-6 bg-gray-50/30 relative overflow-hidden">
+    <!-- Subtle vertical line for orientation -->
+    <div class="hidden lg:block absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+    
+    <!-- Section number -->
+    <div class="hidden lg:block absolute left-6 top-32 -rotate-90 origin-left">
+      <span class="text-xs font-mono text-gray-300 tracking-wider">02 — ÜBER UNS</span>
+    </div>
+    
+    <!-- Subtle particle effect -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none particle-bg"></div>
+    
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <div class="w-12 h-px bg-[#de9e8f] mb-6"></div>
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight mb-6 leading-tight reveal text-gradient-hover">
+            Warum uns vertrauen?
+          </h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p class="reveal reveal-1">
+              <strong class="text-gray-900">Urs</strong> war 14 Jahre bei Google (München, SF, London). Maps, Ads, große Kunden. Hat gesehen, wie AI in echt funktioniert—und wo es scheitert.
+            </p>
+            <p class="reveal reveal-2">
+              <strong class="text-gray-900">Jakob</strong> hat bei Google ML-Pipelines gebaut, Produkte geleitet. Dann intensiv ML gelernt. Weiß, wo die Tech-Grenzen sind.
+            </p>
+            <p class="reveal reveal-3">
+              Haben dann <strong class="text-[#de9e8f]">privma</strong> gegründet: Personal AI, die DMA nutzt. Haben selbst gebaut, selbst gefailed, selbst gelernt. Deshalb können wir euch sagen, was wirklich geht.
+            </p>
+          </div>
+        </div>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-500 reveal">Was wir gebaut haben</h3>
+            <div class="space-y-4">
+              <a href="https://privma.com" target="_blank" rel="noopener noreferrer" class="block glass p-6 rounded-2xl bento-card spotlight tilt-3d reveal reveal-1" data-bento-card>
+                <div class="flex items-start justify-between mb-2">
+                  <span class="font-semibold text-lg text-gradient-hover">Privma</span>
+                  <span class="text-xs text-gray-600 uppercase tracking-wider font-semibold">Personal AI</span>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  Context Layer für AI. DMA Data Portability. Hyper-personalisierte Ergebnisse aus echten Daten.
+                </p>
+              </a>
+              
+              <a href="https://heynuno.com" target="_blank" rel="noopener noreferrer" class="block glass p-6 rounded-2xl bento-card spotlight tilt-3d reveal reveal-2" data-bento-card>
+                <div class="flex items-start justify-between mb-2">
+                  <span class="font-semibold text-lg text-gradient-hover">HeyNuno</span>
+                  <span class="text-xs text-gray-600 uppercase tracking-wider font-semibold">LLM Assistant</span>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  RAG-basierter AI Assistant. Production-ready. Läuft.
+                </p>
+              </a>
+            </div>
+          </div>
+          
+          <div class="pt-6 border-t border-gray-200 reveal reveal-3">
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Wir sind keine Agentur mit 50 Leuten. Wir sind zwei Gründer, die wissen, wovon sie reden. Wenn's komplexer wird, holen wir die richtigen Freelancer dazu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Section Divider -->
+  <div class="relative py-16 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4">
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+        <div class="flex items-center gap-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+          <span class="text-xs font-mono text-gray-400 tracking-wider">03</span>
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+        </div>
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA with breathing animation and morphing border -->
+  <section class="py-24 px-6 bg-white relative overflow-hidden">
+    <!-- Subtle vertical line for orientation -->
+    <div class="hidden lg:block absolute left-12 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+    
+    <!-- Section number -->
+    <div class="hidden lg:block absolute left-6 top-32 -rotate-90 origin-left">
+      <span class="text-xs font-mono text-gray-300 tracking-wider">03 — KONTAKT</span>
+    </div>
+    
+    <!-- Animated blob -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-800/4 rounded-full blur-3xl animate-pulse"></div>
+    
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="h-16 w-px bg-slate-800 mx-auto mb-10 float"></div>
+      
+      <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 reveal text-gradient-hover">
+        Lass uns reden.
+      </h2>
+      
+      <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto reveal reveal-1">
+        30 Minuten. Kein Sales-Pitch. Wir sagen euch ehrlich, ob wir helfen können—oder nicht.
+      </p>
+      
+      <a
+        href="https://cal.com/agnosphere"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block px-12 py-4 bg-gray-900 text-white text-lg font-medium hover-lift glow-on-hover reveal reveal-2 tilt-3d breathe"
+      >
+        Erstgespräch buchen →
+      </a>
+      
+      <p class="mt-6 text-sm text-gray-400 reveal reveal-3">
+        Oder Mail an <a href="mailto:hello@agnosphere.com" class="underline hover:text-gray-900 transition-colors">hello@agnosphere.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-100 py-10 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <div class="text-xl font-semibold mb-1 text-gradient-hover">Agnosphere</div>
+          <p class="text-sm text-gray-500">AI ohne Bullshit.</p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row gap-6 md:gap-10 text-sm">
+          <a href="/#services" class="text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+          <a href="/contact" class="text-gray-600 hover:text-gray-900 transition-colors">Kontakt</a>
+          <a href="/imprint" class="text-gray-600 hover:text-gray-900 transition-colors">Impressum</a>
+          <a href="/privacy" class="text-gray-600 hover:text-gray-900 transition-colors">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
+
+<script>
+  // Reveal on scroll animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all reveal elements
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Mouse tracking for bento cards (spotlight effect)
+  document.querySelectorAll('[data-bento-card]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      (card as HTMLElement).style.setProperty('--mouse-x', `${x}%`);
+      (card as HTMLElement).style.setProperty('--mouse-y', `${y}%`);
+    });
+  });
+
+  // Track CTA clicks
+  document.querySelectorAll('a[href*="cal.com"]').forEach(el => {
+    el.addEventListener('click', () => {
+      if ((window as any).plausible) {
+        (window as any).plausible('cta_click');
+      }
+    });
+  });
+
+  // Founder modal functionality
+  const modal = document.getElementById('founder-modal');
+  const closeBtn = document.getElementById('close-modal');
+  const ursContent = document.getElementById('urs-content');
+  const jakobContent = document.getElementById('jakob-content');
+
+  document.querySelectorAll('.founder-badge').forEach(badge => {
+    badge.addEventListener('click', (e) => {
+      const founder = (e.currentTarget as HTMLElement).dataset.founder;
+      
+      // Hide all content
+      document.querySelectorAll('.founder-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      
+      // Show selected founder content
+      if (founder === 'urs') {
+        ursContent?.classList.remove('hidden');
+      } else if (founder === 'jakob') {
+        jakobContent?.classList.remove('hidden');
+      }
+      
+      // Show modal
+      modal?.classList.remove('hidden');
+      modal?.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close modal
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+    modal?.classList.remove('flex');
+    document.body.style.overflow = 'auto';
+  });
+
+  // Close on backdrop click
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    }
+  });
+</script>
+
+<style>
+  /* Ensure animations work on load */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      will-change: opacity, transform;
+    }
+  }
+
+  /* Pulse animation for blobs */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>

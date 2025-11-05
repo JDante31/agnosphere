@@ -1,0 +1,36 @@
+---
+// Add FAQ schema to homepage for SEO
+export interface Props {
+  questions: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+const { questions } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: questions.map((q) => ({
+    '@type': 'Question',
+    name: q.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: q.answer,
+    },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<div class="space-y-6">
+  {questions.map((item) => (
+    <div class="bg-white rounded-xl p-6 shadow-md">
+      <h3 class="text-lg font-bold text-gray-900 mb-2">{item.question}</h3>
+      <p class="text-gray-600">{item.answer}</p>
+    </div>
+  ))}
+</div>
+
