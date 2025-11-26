@@ -1,16 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const stats = [
-  { value: '14', label: 'Jahre Google' },
-  { value: '2', label: 'Gründer' },
-  { value: '∞', label: 'Schnell' },
-];
 ---
 
 <BaseLayout
-  title="Agnosphere - AI & Data Consulting"
-  description="Former Google engineers helping SMB and mid-market companies build AI and data solutions that work."
+  title="Agnosphere - Private Equity Tech Execution"
+  description="We turn legacy data and fragmented infrastructure into scalable assets. Tech-agnostic execution for PE portfolios."
 >
 
   <!-- Hero - Clean, Trustworthy, Centered -->
@@ -27,17 +21,13 @@ const stats = [
         <div class="mb-6 reveal">
           <img id="hero-logo" src="/images/logo.png" alt="Agnosphere" class="w-full max-w-[300px] h-auto mx-auto mb-8" />
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900">
-            <span class="text-highlight">AI & Data richtig gemacht</span>
+            Bridging the <span class="text-highlight">Execution Gap</span> in Private Equity.
           </h1>
         </div>
         
         <!-- Subheadline -->
-        <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl reveal reveal-1 text-reveal active">
-          Wir sind Urs & Jakob. 14+ Jahre bei Google. Von Strategie bis Umsetzung – ohne Agentur-Theater.
-        </p>
-        
-        <p class="text-lg text-gray-500 leading-relaxed max-w-xl reveal reveal-2">
-          Keine 6-Monats-Projekte. Wir zeigen euch in 2-3 Wochen, was wirklich geht und was nicht.
+        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-2xl reveal reveal-1 text-reveal active">
+          We turn legacy data and fragmented infrastructure into scalable assets. <span class="font-semibold text-gray-900">Tech-Agnostic. High-Velocity. EBITDA-Focused.</span>
         </p>
         
         <!-- CTAs -->
@@ -49,117 +39,24 @@ const stats = [
             type="button"
             class="group px-10 py-4 btn-primary font-medium hover-lift glow-on-hover inline-flex items-center justify-center gap-3 tilt-3d cal-button"
           >
-            <span>Erstgespräch buchen</span>
+            <span>Discuss Your Case</span>
             <span class="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
           </button>
           
           <a
-            href="#services"
+            href="#mission"
             class="px-10 py-4 glass font-medium hover-lift glow-on-hover transition-all duration-300 text-center rounded-full border-2 border-[rgb(var(--color-secondary))]/30 hover:border-[rgb(var(--color-secondary))]/60"
           >
-            Was wir machen
+            Our Approach
           </a>
-        </div>
-
-        <!-- Stats - Clean Row -->
-        <div class="grid grid-cols-3 gap-8 md:gap-16 pt-12 reveal reveal-4 border-t border-gray-100 mt-8">
-          {stats.map((stat, index) => (
-            <div class="text-center group cursor-default">
-              <div class="text-3xl md:text-4xl font-mono-numbers font-semibold mb-2 text-gray-900 group-hover:text-gray-700 transition-colors">{stat.value}</div>
-              <div class="text-xs text-gray-500 uppercase tracking-wider font-medium">{stat.label}</div>
-            </div>
-          ))}
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Founder Modal/Popup (hidden by default) -->
-  <div id="founder-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] hidden items-center justify-center p-6">
-    <div class="glass rounded-3xl max-w-2xl w-full p-8 relative border-2 border-white/40 max-h-[80vh] overflow-y-auto">
-      <button id="close-modal" class="absolute top-6 right-6 text-gray-400 hover:text-gray-900 transition-colors">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-      
-      <!-- Urs Content -->
-      <div id="urs-content" class="founder-content hidden">
-        <div class="mb-6">
-          <h3 class="text-3xl font-semibold mb-2 text-gray-900">Urs</h3>
-          <p class="text-gray-600">14 Jahre Google · München, SF, London</p>
-        </div>
-        
-        <div class="space-y-6">
-          <div>
-            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span class="w-1 h-6 bg-slate-800"></span>
-              Was er gemacht hat
-            </h4>
-            <div class="space-y-3 pl-3 text-gray-600">
-              <p>Maps, Ads, große Enterprise-Kunden bei Google. Hat gesehen, wie AI in echt funktioniert bei Millionen Usern, mit echten Daten, unter echtem Druck.</p>
-              <p>Weiß, wo AI Hype ist und wo es ROI bringt.</p>
-            </div>
-          </div>
-          
-          <div>
-            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span class="w-1 h-6 bg-slate-800"></span>
-              Was er jetzt macht
-            </h4>
-            <div class="space-y-3 pl-3">
-              <div>
-                <div class="font-semibold text-gray-900">Privma (mit Jakob)</div>
-                <div class="text-sm text-gray-500">Personal AI, die DMA Data Portability nutzt. Haben selbst die Tech gebaut, selbst gefailed, selbst iteriert. Das ist unser Lab.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Jakob Content -->
-      <div id="jakob-content" class="founder-content hidden">
-        <div class="mb-6">
-          <h3 class="text-3xl font-semibold mb-2 text-gray-900">Jakob</h3>
-          <p class="text-gray-600">Ex-Google ML · Product Builder</p>
-        </div>
-        
-        <div class="space-y-6">
-          <div>
-            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span class="w-1 h-6 bg-slate-800"></span>
-              Was er gemacht hat
-            </h4>
-            <div class="space-y-3 pl-3 text-gray-600">
-              <p>ML-Pipelines und Product bei Google. Dann intensiv in AI/ML reingehauen, weiß genau, wo die Tech-Grenzen sind und was wirklich geht.</p>
-              <p>Kann Code lesen, Claims checken, Bullshit sofort erkennen.</p>
-            </div>
-          </div>
-          
-          <div>
-            <h4 class="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span class="w-1 h-6 bg-slate-800"></span>
-              Was er jetzt macht
-            </h4>
-            <div class="space-y-3 pl-3">
-              <div>
-                <div class="font-semibold text-gray-900">Privma (mit Urs)</div>
-                <div class="text-sm text-gray-500">Context Layer für AI. Haben die ganze Infra selbst gebaut, deshalb wissen wir, was machbar ist in 2-3 Wochen.</div>
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">HeyNuno</div>
-                <div class="text-sm text-gray-500">RAG-basierter AI Assistant. Production-ready, läuft bei Kunden.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Services Section -->
-  <section id="services" class="py-24 px-6 relative overflow-hidden bg-white">
+  <!-- Mission + Advantage Section -->
+  <section id="mission" class="py-24 px-6 relative overflow-hidden bg-white">
     
     <!-- Section Number at Top -->
     <div class="max-w-6xl mx-auto mb-20">
@@ -173,12 +70,90 @@ const stats = [
         <div class="flex-1 h-px bg-gray-200"></div>
       </div>
       
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8 reveal">
+          <span class="text-highlight">Our Mission</span>
+        </h2>
+        
+        <div class="space-y-4 md:space-y-6 text-left reveal reveal-1">
+          <p class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+            We operate where strategy meets code. Most value creation plans fail not because of strategy, but because of technical execution. Agnosphere is the tactical intervention unit for Private Equity portfolios. We mobilize "dead capital" - unused data and siloed systems - to accelerate digital transformation, reduce OpEx through automation, and ensure exit-readiness.
+          </p>
+          
+          <p class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+            <strong>We are Agnosphere:</strong> We operate in a strictly tech-agnostic sphere. No vendor lock-in, no dogma. Just the most effective architecture for your specific business case.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The Agnosphere Advantage -->
+    <div class="max-w-5xl mx-auto relative z-10">
+      <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-8 md:mb-12 text-center reveal reveal-2">
+        The Agnosphere Advantage
+      </h3>
+      
+      <div class="space-y-6 md:space-y-8">
+        <div class="glass p-4 md:p-8 rounded-2xl border-2 border-gray-100 hover:border-[rgb(var(--color-secondary))]/30 transition-all duration-300 reveal reveal-3">
+          <div class="flex items-start gap-3 md:gap-6">
+            <span class="text-4xl md:text-5xl font-mono-numbers font-bold text-[#7af28c] flex-shrink-0">01</span>
+            <div>
+              <h4 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3 text-gray-900">Velocity</h4>
+              <p class="text-gray-600 leading-relaxed">
+                <span class="text-highlight-purple">Time-to-Value</span> is our primary KPI. We don't do multi-year roadmaps. We work in <span class="text-highlight-purple">high-impact sprints</span> to fix bottlenecks, merge data silos, or launch AI pilots. We act as a catalyst to bypass internal IT inertia and deliver measurable results in <span class="text-highlight-purple">weeks, not years.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-4 md:p-8 rounded-2xl border-2 border-gray-100 hover:border-[rgb(var(--color-secondary))]/30 transition-all duration-300 reveal reveal-4">
+          <div class="flex items-start gap-3 md:gap-6">
+            <span class="text-4xl md:text-5xl font-mono-numbers font-bold text-[#7af28c] flex-shrink-0">02</span>
+            <div>
+              <h4 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3 text-gray-900">Precision</h4>
+              <p class="text-gray-600 leading-relaxed">
+                <span class="text-highlight-purple">Institutional-Grade Execution.</span> Born from Google-scale expertise, we bring Big Tech rigor to the mid-market. We build resilient, <span class="text-highlight-purple">audit-proof infrastructures</span> that withstand due diligence. We don't just "make it work" - we build assets that <span class="text-highlight-purple">increase the enterprise value.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass p-4 md:p-8 rounded-2xl border-2 border-gray-100 hover:border-[rgb(var(--color-secondary))]/30 transition-all duration-300 reveal reveal-5">
+          <div class="flex items-start gap-3 md:gap-6">
+            <span class="text-4xl md:text-5xl font-mono-numbers font-bold text-[#7af28c] flex-shrink-0">03</span>
+            <div>
+              <h4 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3 text-gray-900">Independence</h4>
+              <p class="text-gray-600 leading-relaxed">
+                <span class="text-highlight-purple">True Tech-Agnosticism.</span> We are not tied to any cloud provider or LLM. Whether AWS, Azure, or GCP; whether OpenAI, Anthropic, or Open Source: We select and implement the technology that fits the asset's P&L and long-term strategy. We build the <span class="text-highlight-purple">"Context Layer"</span> that connects any AI to your proprietary data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities Section -->
+  <section id="services" class="py-24 px-6 relative overflow-hidden hero-bg">
+    
+    <!-- Section Number at Top -->
+    <div class="max-w-6xl mx-auto mb-20">
+      <div class="flex items-center gap-4 mb-12">
+        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-gray-200"></div>
+        <div class="flex items-center gap-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-400"></div>
+          <span class="text-sm font-mono text-gray-500 tracking-wider">02</span>
+          <div class="w-1.5 h-1.5 rounded-full bg-gray-400"></div>
+        </div>
+        <div class="flex-1 h-px bg-gray-200"></div>
+      </div>
+      
       <div class="text-center max-w-3xl mx-auto">
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 reveal">
-          Wie wir helfen
+          Core Capabilities
         </h2>
         <p class="text-xl text-gray-600 leading-relaxed reveal reveal-1">
-          Kurz, knackig, konkret. 2-3 Wochen pro Projekt.
+          Tactical interventions that move the needle on enterprise value.
         </p>
       </div>
     </div>
@@ -188,27 +163,27 @@ const stats = [
         {[
           {
             number: '01',
-            title: 'AI Entmystifizierung',
-            description: 'Workshop: Was ist AI wirklich? Wo macht es Sinn? Wo ist es Hype? 1-2 Tage, alle verstehen es danach.',
-            backInfo: '1-2 Tage Workshop. Ihr versteht danach AI-Grundlagen, erkennt echte Chancen und wisst, was Hype ist.'
+            title: 'Asset Creation & Data Mobilization',
+            description: 'Turning isolated data silos (ERP, CRM, Legacy) into a unified, AI-ready source of truth.',
+            backInfo: 'The foundation for scalable automation and revenue intelligence. We harmonize fragmented data landscapes into strategic assets that increase valuation multiples.'
           },
           {
             number: '02',
-            title: 'Use Case Sparring',
-            description: 'Gemeinsam konkrete Use Cases identifizieren. ROI schätzen. Prioritäten setzen. Kein PowerPoint-Theater.',
-            backInfo: '2-3 Tage intensiv. Gemeinsam Use Cases entwickeln, ROI schätzen und Roadmap erstellen.'
+            title: 'Post-Merger Integration (PMI) & Carve-Outs',
+            description: 'Rapid technical consolidation of buy-and-build platforms across borders.',
+            backInfo: 'Harmonizing diverse IT landscapes to realize synergy effects immediately. From API unification to data warehouse integration - fast and audit-proof.'
           },
           {
             number: '03',
-            title: 'Proof of Concept',
-            description: 'In 2-3 Wochen zeigen wir, ob euer Use Case funktioniert. Quick & dirty, aber echt. Dann entscheidet ihr.',
-            backInfo: '2-3 Wochen Entwicklung. Funktionierender Prototyp mit echten Daten. Ihr seht, ob es funktioniert.'
+            title: 'OpEx Reduction via AI',
+            description: 'Implementation of secure, privacy-compliant AI agents to automate high-volume processes.',
+            backInfo: 'Measurable cost reduction in sales, support, and administration. We deploy production-ready AI that delivers ROI in quarters, not years.'
           },
           {
             number: '04',
-            title: 'Tech Due Diligence',
-            description: 'Ihr wollt AI einkaufen oder einen Partner evaluieren? Wir checken die Claims und sagen euch die Wahrheit.',
-            backInfo: '1-2 Wochen Review. Wir checken Code, Performance und geben euch eine ehrliche Einschätzung.'
+            title: 'Technical Red Flag Reports',
+            description: 'Fast, brutal honesty for your Investment Committee before you buy - or fix it before you sell.',
+            backInfo: 'We assess code quality, scalability, technical debt, and security vulnerabilities. Clear recommendations on deal-breakers vs. fixable issues.'
           },
         ].map((service, index) => (
           <div
@@ -220,7 +195,7 @@ const stats = [
               <div class="flip-card-front p-6 bg-white border-2 border-gray-100 rounded-2xl">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
-                    <span class="text-4xl font-mono-numbers font-bold text-gray-200">{service.number}</span>
+                    <span class="text-4xl font-mono-numbers font-bold text-[#7af28c]">{service.number}</span>
                   </div>
                   
                   <h3 class="text-xl font-semibold text-gray-900">
@@ -248,8 +223,8 @@ const stats = [
     </div>
   </section>
 
-  <!-- About Us Section -->
-  <section id="about" class="py-24 px-6 relative overflow-hidden hero-bg">
+  <!-- Leadership Section -->
+  <section id="about" class="py-24 px-6 relative overflow-hidden bg-white">
     
     <!-- Section Number at Top -->
     <div class="max-w-6xl mx-auto mb-20">
@@ -257,7 +232,7 @@ const stats = [
         <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-gray-200"></div>
         <div class="flex items-center gap-3">
           <div class="w-1.5 h-1.5 rounded-full bg-gray-400"></div>
-          <span class="text-sm font-mono text-gray-500 tracking-wider">02</span>
+          <span class="text-sm font-mono text-gray-500 tracking-wider">03</span>
           <div class="w-1.5 h-1.5 rounded-full bg-gray-400"></div>
         </div>
         <div class="flex-1 h-px bg-gray-200"></div>
@@ -265,86 +240,79 @@ const stats = [
       
       <div class="text-center max-w-3xl mx-auto">
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 reveal">
-          Warum uns vertrauen?
+          Leadership
         </h2>
-        <p class="text-xl text-gray-600 leading-relaxed reveal reveal-1">
-          Weil wir wissen, wovon wir reden.
-        </p>
       </div>
     </div>
     
-    <div class="max-w-4xl mx-auto relative z-10">
+    <div class="max-w-5xl mx-auto relative z-10">
       
-      <!-- The Story - One Cohesive Narrative -->
-      <div class="space-y-12 text-center">
+      <!-- Leadership Profiles -->
+      <div class="grid md:grid-cols-2 gap-6 md:gap-12">
         
-        <!-- Profiles - Inline with story -->
-        <div class="flex justify-center items-start gap-12 reveal reveal-2">
-          <a href="https://www.linkedin.com/in/urssteurer/" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center">
-            <div class="relative mb-3">
-              <img src="/images/profile_urs.jpeg" alt="Urs Steurer" class="w-24 h-24 rounded-full object-cover border-3 border-gray-200 group-hover:border-[#0A66C2] transition-all duration-300" />
-              <div class="absolute -bottom-1 -right-1 w-8 h-8 bg-[#0A66C2] rounded-full flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+        <!-- Urs Steurer -->
+        <div class="glass p-6 md:p-8 rounded-2xl border-2 border-gray-100 reveal reveal-2">
+          <div class="flex flex-col items-center text-center mb-6">
+            <a href="https://www.linkedin.com/in/urssteurer/" target="_blank" rel="noopener noreferrer" class="group mb-4">
+              <div class="relative">
+                <img src="/images/profile_urs.jpeg" alt="Urs Steurer" class="w-32 h-32 rounded-full object-cover border-3 border-gray-200 group-hover:border-[#0A66C2] transition-all duration-300" />
+                <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-[#0A66C2] rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </div>
               </div>
-            </div>
-            <span class="text-sm font-medium text-gray-900 group-hover:text-[#0A66C2] transition-colors">Urs</span>
-          </a>
-          <a href="https://www.linkedin.com/in/jakschl/" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center">
-            <div class="relative mb-3">
-              <img src="/images/profile_jakob.jpeg" alt="Jakob Schlegel" class="w-24 h-24 rounded-full object-cover border-3 border-gray-200 group-hover:border-[#0A66C2] transition-all duration-300" />
-              <div class="absolute -bottom-1 -right-1 w-8 h-8 bg-[#0A66C2] rounded-full flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </div>
-            </div>
-            <span class="text-sm font-medium text-gray-900 group-hover:text-[#0A66C2] transition-colors">Jakob</span>
-          </a>
-        </div>
-
-        <!-- The Story - Short & Highlighted -->
-        <div class="space-y-6 reveal reveal-3">
-          <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
-            <strong>Urs:</strong> <span class="text-highlight">14 Jahre Google</span>. München, SF, London. Maps, Ads, große Kunden.
-          </p>
-          <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
-            <strong>Jakob:</strong> <span class="text-highlight">ML-Pipelines & Product</span> bei Google. Weiß, wo die Tech-Grenzen sind.
-          </p>
-          <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
-            Haben dann <a href="https://privma.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-gray-900 hover:text-[#7af28c] transition-colors underline decoration-2 underline-offset-4">privma</a> gebaut: <span class="text-highlight">Personal AI mit echten Daten</span>. Live im Einsatz.
-          </p>
-          <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
-            Deshalb wissen wir, <span class="text-highlight">was machbar ist und wie lange es dauert</span>. Keine Theorie.
-          </p>
-        </div>
-
-        <!-- Network Highlight -->
-        <div class="pt-8 border-t border-gray-200 reveal reveal-4">
-          <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Mit unserem <span class="text-highlight">Tech & Engineering Network</span> holen wir die besten Leute für euer Projekt. Wer Mehrwert bringt und richtig gut ist, ist dabei.
-          </p>
-          <p class="text-sm text-gray-500 mt-4">
-            Keine Agentur mit 50 Leuten. Zwei Gründer, die wissen, wovon sie reden.
-          </p>
-        </div>
-
-        <!-- Subtle Company Logos -->
-        <div class="pt-12 reveal reveal-5">
-          <p class="text-center text-xs uppercase tracking-wider text-gray-400 mb-6">Firmen mit denen wir gearbeitet haben</p>
-          <div class="opacity-30 hover:opacity-50 transition-opacity duration-500 grayscale">
-            <img src="/images/company_logos.jpg" alt="Google, Amazon, Samsung, SAP, Siemens und weitere" class="w-full h-auto" />
+            </a>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-1">Urs Steurer</h3>
+            <p class="text-sm text-gray-500 uppercase tracking-wider mb-2">Managing Director & Business Lead</p>
+            <p class="text-gray-600 font-medium">The Strategist</p>
+          </div>
+          
+          <div class="space-y-4 text-left">
+            <p class="text-gray-700 leading-relaxed">
+              <strong>Ex-Google.</strong> Urs bridges the gap between the Investment Committee's vision and the engine room's reality. With a deep understanding of digital business models and data privacy (GDPR/DMA), he ensures that every line of code written serves a clear commercial purpose.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              He translates "Tech" into "EBITDA."
+            </p>
           </div>
         </div>
-
+        
+        <!-- Jakob Schlegel -->
+        <div class="glass p-6 md:p-8 rounded-2xl border-2 border-gray-100 reveal reveal-3">
+          <div class="flex flex-col items-center text-center mb-6">
+            <a href="https://www.linkedin.com/in/jakschl/" target="_blank" rel="noopener noreferrer" class="group mb-4">
+              <div class="relative">
+                <img src="/images/profile_jakob.jpeg" alt="Jakob Schlegel" class="w-32 h-32 rounded-full object-cover border-3 border-gray-200 group-hover:border-[#0A66C2] transition-all duration-300" />
+                <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-[#0A66C2] rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-1">Jakob Schlegel</h3>
+            <p class="text-sm text-gray-500 uppercase tracking-wider mb-2">Tech Lead & Principal Architect</p>
+            <p class="text-gray-600 font-medium">The Executor</p>
+          </div>
+          
+          <div class="space-y-4 text-left">
+            <p class="text-gray-700 leading-relaxed">
+              <strong>Deep-Tech Native.</strong> Jakob stands for uncompromising technical excellence and speed. An expert in navigating complex infrastructures - from Big Data architecture to the latest LLM integrations.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              He leads our network of elite developers and ensures delivery that is scalable, secure, and strictly agnostic.
+            </p>
+          </div>
+        </div>
+        
       </div>
       
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section id="contact" class="py-20 px-6 bg-white relative overflow-hidden">
+  <section id="contact" class="py-20 px-6 hero-bg relative overflow-hidden">
     
     <!-- Section Number at Top -->
     <div class="max-w-6xl mx-auto mb-16">
@@ -352,7 +320,7 @@ const stats = [
         <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-200 to-gray-200"></div>
         <div class="flex items-center gap-3">
           <div class="w-1.5 h-1.5 rounded-full bg-gray-400"></div>
-          <span class="text-sm font-mono text-gray-500 tracking-wider">03</span>
+          <span class="text-sm font-mono text-gray-500 tracking-wider">04</span>
           <div class="w-1.5 h-1.5 rounded-full bg-gray-400"></div>
         </div>
         <div class="flex-1 h-px bg-gray-200"></div>
@@ -365,11 +333,11 @@ const stats = [
     <div class="max-w-4xl mx-auto text-center relative z-10">
       
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 reveal">
-        Lass uns reden.
+        Let's Talk
       </h2>
       
       <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto reveal reveal-1 leading-relaxed">
-        30 Minuten. Kein Sales-Pitch. Wir sagen euch ehrlich, ob wir helfen können oder nicht.
+        30 minutes. No sales pitch. We'll tell you honestly whether we can help accelerate your portfolio's value creation - or not.
       </p>
       
       <button
@@ -379,13 +347,13 @@ const stats = [
         type="button"
         class="inline-flex items-center gap-3 px-12 py-5 btn-primary text-lg font-medium hover-lift glow-on-hover reveal reveal-2 tilt-3d group cal-button"
       >
-        <span>Erstgespräch buchen</span>
+        <span>Book Initial Call</span>
         <span class="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
       </button>
       
       <div class="mt-12 space-y-4 reveal reveal-3">
         <p class="text-gray-600 text-base">
-          Oder direkt Kontakt:
+          Or reach out directly:
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-lg">
           <a href="mailto:hello@agnosphere.com" class="text-gray-900 hover:text-brand transition-colors font-medium flex items-center gap-2">
@@ -443,61 +411,6 @@ const stats = [
     card.addEventListener('click', () => {
       card.classList.toggle('flipped');
     });
-  });
-
-
-  // Founder modal functionality
-  const modal = document.getElementById('founder-modal');
-  const closeBtn = document.getElementById('close-modal');
-  const ursContent = document.getElementById('urs-content');
-  const jakobContent = document.getElementById('jakob-content');
-
-  document.querySelectorAll('.founder-badge').forEach(badge => {
-    badge.addEventListener('click', (e) => {
-      const founder = (e.currentTarget as HTMLElement).dataset.founder;
-      
-      // Hide all content
-      document.querySelectorAll('.founder-content').forEach(content => {
-        content.classList.add('hidden');
-      });
-      
-      // Show selected founder content
-      if (founder === 'urs') {
-        ursContent?.classList.remove('hidden');
-      } else if (founder === 'jakob') {
-        jakobContent?.classList.remove('hidden');
-      }
-      
-      // Show modal
-      modal?.classList.remove('hidden');
-      modal?.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  // Close modal
-  closeBtn?.addEventListener('click', () => {
-    modal?.classList.add('hidden');
-    modal?.classList.remove('flex');
-    document.body.style.overflow = 'auto';
-  });
-
-  // Close on backdrop click
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
-    }
-  });
-
-  // Close on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
-    }
   });
 
   // Dynamic Navbar Visibility - Hide entire navbar on hero section
