@@ -72,14 +72,10 @@ const defaultJsonLd = {
     <meta name="twitter:image" content={fullOgImage} />
     
     <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://plausible.io" />
     <link rel="dns-prefetch" href="https://cal.com" />
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd || defaultJsonLd)} />
-    
-    <!-- Plausible Analytics (will be configured) -->
-    <script defer data-domain="agnosphere.com" src="https://plausible.io/js/script.js"></script>
   </head>
   <body class="antialiased">
     <CustomCursor client:load />
@@ -88,6 +84,40 @@ const defaultJsonLd = {
       <slot />
     </main>
     <Footer />
+    
+    <!-- Cal.com Embed Script -->
+    <script type="text/javascript" is:inline>
+      (function (C, A, L) { 
+        let p = function (a, ar) { a.q.push(ar); }; 
+        let d = C.document; 
+        C.Cal = C.Cal || function () { 
+          let cal = C.Cal; 
+          let ar = arguments; 
+          if (!cal.loaded) { 
+            cal.ns = {}; 
+            cal.q = cal.q || []; 
+            d.head.appendChild(d.createElement("script")).src = A; 
+            cal.loaded = true; 
+          } 
+          if (ar[0] === L) { 
+            const api = function () { p(api, arguments); }; 
+            const namespace = ar[1]; 
+            api.q = api.q || []; 
+            typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); 
+            return; 
+          } 
+          p(cal, ar); 
+        }; 
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      
+      Cal("init", {origin:"https://cal.com"});
+      
+      // Global UI config
+      Cal("ui", {
+        "hideEventTypeDetails":false,
+        "layout":"month_view"
+      });
+    </script>
   </body>
 </html>
 
