@@ -230,6 +230,92 @@ const defaultJsonLd = {
       });
     </script>
     
+    <!-- Google Analytics Event Tracking Helper -->
+    <script is:inline>
+      // Helper function to safely track events
+      function trackEvent(eventName, eventParams = {}) {
+        if (typeof gtag !== 'undefined' && localStorage.getItem('cookie-consent') === 'accepted') {
+          gtag('event', eventName, eventParams);
+          console.log('📊 GA Event:', eventName, eventParams); // Debug logging
+        }
+      }
+      
+      // Wait for DOM to load
+      document.addEventListener('DOMContentLoaded', function() {
+        
+        // Track all "Book Call" / "Discuss Your Case" buttons (Cal.com triggers)
+        document.querySelectorAll('.cal-button').forEach(function(button) {
+          button.addEventListener('click', function() {
+            var buttonText = this.textContent.trim();
+            trackEvent('cta_click', {
+              'button_text': buttonText,
+              'button_location': 'call_to_action'
+            });
+          });
+        });
+        
+        // Track email clicks
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            trackEvent('contact_click', {
+              'contact_type': 'email',
+              'contact_value': this.href.replace('mailto:', '')
+            });
+          });
+        });
+        
+        // Track phone clicks
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            trackEvent('contact_click', {
+              'contact_type': 'phone',
+              'contact_value': this.href.replace('tel:', '')
+            });
+          });
+        });
+        
+        // Track LinkedIn profile clicks
+        document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            var profile = this.href.includes('urssteurer') ? 'Urs' : 'Jakob';
+            trackEvent('social_click', {
+              'platform': 'linkedin',
+              'profile': profile
+            });
+          });
+        });
+        
+        // Track "Our Approach" secondary CTA
+        document.querySelectorAll('a[href="#mission"]').forEach(function(link) {
+          link.addEventListener('click', function() {
+            trackEvent('navigation_click', {
+              'link_text': 'our_approach',
+              'destination': 'mission_section'
+            });
+          });
+        });
+        
+        // Track section visibility (scroll tracking)
+        if ('IntersectionObserver' in window) {
+          var sectionObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                var sectionName = entry.target.id || 'unknown';
+                trackEvent('section_view', {
+                  'section_name': sectionName
+                });
+              }
+            });
+          }, { threshold: 0.5 });
+          
+          // Observe main sections
+          document.querySelectorAll('section[id]').forEach(function(section) {
+            sectionObserver.observe(section);
+          });
+        }
+      });
+    </script>
+    
     <style>
       /* Cookie banner animation */
       @keyframes slide-up {
