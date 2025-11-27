@@ -8,18 +8,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 
   <!-- Hero - Clean, Trustworthy, Centered -->
-  <section class="min-h-[90vh] flex items-center justify-center px-6 pt-32 pb-20 hero-bg checkmark-pattern relative overflow-hidden">
+  <section class="min-h-[90vh] flex items-center justify-center px-6 pt-20 md:pt-32 pb-12 md:pb-20 hero-bg checkmark-pattern relative overflow-hidden">
     
     <!-- Animated gradient blobs - More subtle -->
     <div class="absolute top-20 right-1/4 w-96 h-96 bg-[#de9e8f]/5 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-20 left-1/4 w-80 h-80 bg-[rgb(var(--color-secondary))]/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
 
     <div class="max-w-4xl w-full relative z-10 text-center">
-      <div class="space-y-10 flex flex-col items-center">
+      <div class="space-y-6 md:space-y-10 flex flex-col items-center">
         
         <!-- Logo & Headline -->
-        <div class="mb-6 reveal">
-          <img id="hero-logo" src="/images/logo.png" alt="Agnosphere" class="w-full max-w-[300px] h-auto mx-auto mb-8" />
+        <div class="mb-3 md:mb-6 reveal">
+          <img id="hero-logo" src="/images/logo.png" alt="Agnosphere" class="w-full max-w-[300px] h-auto mx-auto mb-4 md:mb-8" />
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900">
             Bridging the<br class="md:hidden" /><span class="text-highlight whitespace-nowrap">Execution Gap</span><br class="hidden md:block" /> in Private Equity.
           </h1>
@@ -100,7 +100,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div>
               <h4 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3 text-gray-900">Velocity</h4>
               <p class="text-gray-600 leading-relaxed">
-                <span class="text-highlight-purple">Time-to-Value</span> is our primary KPI. We don't do multi-year roadmaps. We work in <span class="text-highlight-purple">high-impact sprints</span> to fix bottlenecks, merge data silos, or launch AI pilots. We act as a catalyst to bypass internal IT inertia and deliver measurable results in <span class="text-highlight-purple">weeks, not years.</span>
+                <span class="text-highlight-purple whitespace-nowrap">Time-to-Value</span> is our primary KPI. We don't do multi-year roadmaps. We work in <span class="text-highlight-purple whitespace-nowrap">high-impact sprints</span> to fix bottlenecks, merge data silos, or launch AI pilots. We act as a catalyst to bypass internal IT inertia and deliver measurable results in <span class="text-highlight-purple whitespace-nowrap">weeks, not years.</span>
               </p>
             </div>
           </div>
@@ -112,7 +112,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div>
               <h4 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3 text-gray-900">Precision</h4>
               <p class="text-gray-600 leading-relaxed">
-                <span class="text-highlight-purple">Institutional-Grade Execution.</span> Born from Google-scale expertise, we bring Big Tech rigor to the mid-market. We build resilient, <span class="text-highlight-purple">audit-proof infrastructures</span> that withstand due diligence. We don't just "make it work" - we build assets that <span class="text-highlight-purple">increase the enterprise value.</span>
+                <span class="text-highlight-purple whitespace-nowrap">Institutional-Grade Execution.</span> Born from Google-scale expertise, we bring Big Tech rigor to the mid-market. We build resilient, <span class="text-highlight-purple whitespace-nowrap">audit-proof infrastructures</span> that withstand due diligence. We don't just "make it work" - we build assets that <span class="text-highlight-purple whitespace-nowrap">increase the enterprise value.</span>
               </p>
             </div>
           </div>
@@ -124,7 +124,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div>
               <h4 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3 text-gray-900">Independence</h4>
               <p class="text-gray-600 leading-relaxed">
-                <span class="text-highlight-purple">True Tech-Agnosticism.</span> We are not tied to any cloud provider or LLM. Whether AWS, Azure, or GCP; whether OpenAI, Anthropic, or Open Source: We select and implement the technology that fits the asset's P&L and long-term strategy. We build the <span class="text-highlight-purple">"Context Layer"</span> that connects any AI to your proprietary data.
+                <span class="text-highlight-purple whitespace-nowrap">True Tech-Agnosticism.</span> We are not tied to any cloud provider or LLM. Whether AWS, Azure, or GCP; whether OpenAI, Anthropic, or Open Source: We select and implement the technology that fits the asset's P&L and long-term strategy. We build the <span class="text-highlight-purple whitespace-nowrap">"Context Layer"</span> that connects any AI to your proprietary data.
               </p>
             </div>
           </div>
